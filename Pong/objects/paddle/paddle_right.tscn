@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsdianphebiw0"]
+
+[ext_resource type="PackedScene" uid="uid://r4gxh2gsapd6" path="res://objects/paddle/paddle_left.tscn" id="1_fv52o"]
+
+[node name="Paddle (Right)" instance=ExtResource("1_fv52o")]
+
+[node name="Ball Collision" parent="." index="0"]
+polygon = PackedVector2Array(5, -40, -2, -40, -5, -22, -5, 22, -2, 40, 5, 40)
+
+[node name="Sprite" parent="." index="1"]
+scale = Vector2(-1, 1)

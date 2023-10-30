@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://r4gxh2gsapd6"]
+
+[ext_resource type="Script" path="res://objects/paddle/paddle.gd" id="1_2ejrh"]
+[ext_resource type="Texture2D" uid="uid://dnbdlw3kmoi8v" path="res://objects/paddle/paddle.png" id="2_6r0tc"]
+
+[node name="Paddle (Left)" type="CharacterBody2D"]
+script = ExtResource("1_2ejrh")
+move_speed = 100.0
+
+[node name="Ball Collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-5, -40, 2, -40, 5, -22, 5, 22, 2, 40, -5, 40)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_6r0tc")
