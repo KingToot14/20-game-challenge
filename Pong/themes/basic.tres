@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dkxvvvaej3y2s"]
+
+[ext_resource type="FontFile" uid="uid://dbkhv5i6avrhp" path="res://font/simple_pixel_8x15.ttf" id="1_gf3aa"]
+[ext_resource type="FontVariation" uid="uid://dutaq77ly6m13" path="res://font/simple_pixel.tres" id="2_r7ptt"]
+
+[resource]
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("1_gf3aa")
+Label/font_sizes/font_size = 14
+Label/fonts/font = ExtResource("2_r7ptt")
+RichTextLabel/font_sizes/normal_font_size = 14

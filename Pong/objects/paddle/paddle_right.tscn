@@ -5,7 +5,8 @@
 [node name="Paddle (Right)" instance=ExtResource("1_fv52o")]
 
 [node name="Ball Collision" parent="." index="0"]
-polygon = PackedVector2Array(5, -40, -2, -40, -5, -22, -5, 22, -2, 40, 5, 40)
+polygon = PackedVector2Array(5, -26, -2, -26, -5, -11, -5, 11, -2, 26, 4, 26)
 
 [node name="Sprite" parent="." index="1"]
+modulate = Color(0.858824, 0.239216, 0.239216, 1)
 scale = Vector2(-1, 1)

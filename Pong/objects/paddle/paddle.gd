@@ -2,35 +2,47 @@ class_name Paddle
 extends CharacterBody2D
 
 # --- Variables --- #
-@export var paddle_name: String = "player"
 
-@export var paddle_size: float = 80
-var padding: float = 2
+# Padding
+@export var paddle_size: float
+var padding := 2.0
 
-var LOWER_BOUND = paddle_size / 2 + padding
-var UPPER_BOUND = 180 - paddle_size / 2 - padding
+# Keeping the x_pos constant
+var x_pos: float
 
-@export var move_speed: float = 50
+# Movement
+var idle := true
+@export var move_speed := 50.0
 var dir: Vector2
 
 # --- References --- #
-var UP_INPUT: String
-var DOWN_INPUT: String
+var LOWER_BOUND: int
+var UPPER_BOUND: int
 
 # --- Functions --- #
 func _ready():
-	UP_INPUT = paddle_name + "_up"
-	DOWN_INPUT = paddle_name + "_down"
+	LOWER_BOUND = paddle_size / 2 + padding
+	UPPER_BOUND = 180 - paddle_size / 2 - padding	
+	
+	x_pos = position.x
+
+func set_idle():
+	idle = false
+
+func set_direction(direction):
+	dir = direction
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed(UP_INPUT): dir.y -= 1
-	elif Input.is_action_just_released(UP_INPUT): dir.y += 1
-	if Input.is_action_just_pressed(DOWN_INPUT): dir.y += 1
-	elif Input.is_action_just_released(DOWN_INPUT): dir.y -= 1
+	if idle:
+		return
+	
+	delta *= TimeScaleManager.time_scale
 	
 	velocity = dir * move_speed
-	move_and_slide()
+	move_and_collide(dir * move_speed * delta)
+	position.x = x_pos
 	
+	# Add some padding to the edge of the screen
 	if position.y < LOWER_BOUND:
 		position.y = LOWER_BOUND
 	if position.y > UPPER_BOUND:

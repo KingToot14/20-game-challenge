@@ -18,11 +18,13 @@
 
 [node name="Paddle (Left)" parent="." instance=ExtResource("2_kfbh0")]
 position = Vector2(15, 90)
+paddle_name = "player_1"
 
 [node name="Paddle (Right)" parent="." instance=ExtResource("4_xg0wc")]
 position = Vector2(305, 90)
 motion_mode = 0
 slide_on_ceiling = true
+paddle_name = "player_2"
 
 [node name="Game UI" parent="." instance=ExtResource("6_k74d8")]
 
@@ -39,7 +41,5 @@ game_ui = NodePath("../Game UI")
 
 [connection signal="point_scored" from="Ball" to="Game UI" method="play_score_effect"]
 [connection signal="point_scored" from="Ball" to="Score Manager" method="increment_score"]
-[connection signal="game_started" from="Title" to="Paddle (Left)" method="set_idle"]
-[connection signal="game_started" from="Title" to="Paddle (Right)" method="set_idle"]
 [connection signal="game_started" from="Title" to="Ball" method="spawn_ball"]
 [connection signal="game_started" from="Title" to="Pause Menu" method="set_pauseable"]

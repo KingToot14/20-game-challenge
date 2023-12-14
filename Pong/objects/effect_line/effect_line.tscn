@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpuoop6my1uvw"]
+
+[ext_resource type="Script" path="res://objects/effect_line/effect_line.gd" id="1_r4vf3"]
+
+[node name="Effect Line" type="ColorRect"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -4.0
+grow_vertical = 2
+color = Color(0.239216, 0.447059, 0.858824, 1)
+script = ExtResource("1_r4vf3")
+tween_time = 2.0
+end_x = 30

@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://jwhvigh365hr"]
+
+[ext_resource type="Texture2D" uid="uid://ca1wiem4q4j3h" path="res://ui/title_screen/title.png" id="1_i512p"]
+[ext_resource type="Script" path="res://ui/title_screen/title_manager.gd" id="1_osr51"]
+[ext_resource type="Theme" uid="uid://dkxvvvaej3y2s" path="res://themes/basic.tres" id="2_xcswn"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_osr51")
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = 40.0
+offset_right = 66.0
+offset_bottom = 90.0
+grow_horizontal = 2
+texture = ExtResource("1_i512p")
+
+[node name="Start Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.5
+offset_top = 110.0
+offset_right = 58.5
+offset_bottom = 127.0
+grow_horizontal = 2
+theme = ExtResource("2_xcswn")
+text = "Press 'space' to start"
+horizontal_alignment = 1
+
+[node name="Pause Reminder" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.5
+offset_top = -17.0
+offset_right = 61.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_xcswn")
+text = "Press 'esc' or 'p' to pause"
+horizontal_alignment = 1

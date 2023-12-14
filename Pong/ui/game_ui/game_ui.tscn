@@ -1,0 +1,142 @@
+[gd_scene load_steps=5 format=3 uid="uid://co4gqitup4b3i"]
+
+[ext_resource type="Script" path="res://ui/game_ui/game_ui.gd" id="1_2t50g"]
+[ext_resource type="Texture2D" uid="uid://b43epe5pjdr7" path="res://ui/score_frame.png" id="2_aawjr"]
+[ext_resource type="Theme" uid="uid://dkxvvvaej3y2s" path="res://themes/basic.tres" id="3_4l867"]
+[ext_resource type="PackedScene" uid="uid://bpuoop6my1uvw" path="res://objects/effect_line/effect_line.tscn" id="4_jhhrp"]
+
+[node name="Game UI" type="Control" node_paths=PackedStringArray("left_score_single", "left_score_double", "right_score_single", "right_score_double", "left_score_effect", "right_score_effect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2t50g")
+left_score_single = NodePath("Frame/Single (Left)")
+left_score_double = [NodePath("Frame/Double (Left)"), NodePath("Frame/Double (Left)/Second Digit")]
+right_score_single = NodePath("Frame/Single (Right)")
+right_score_double = [NodePath("Frame/Double (Right)"), NodePath("Frame/Double (Right)/Second Digit")]
+left_score_effect = NodePath("Blue Line")
+right_score_effect = NodePath("Red Line")
+
+[node name="Frame" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_right = 58.0
+offset_bottom = 27.0
+grow_horizontal = 2
+texture = ExtResource("2_aawjr")
+
+[node name="Single (Left)" type="Label" parent="Frame"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -17.0
+offset_top = 6.0
+offset_right = -10.0
+offset_bottom = 19.0
+grow_horizontal = 2
+theme = ExtResource("3_4l867")
+theme_override_colors/font_color = Color(0.239216, 0.447059, 0.858824, 1)
+text = "1"
+horizontal_alignment = 1
+
+[node name="Double (Left)" type="Label" parent="Frame"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = 5.0
+offset_right = -14.0
+offset_bottom = 18.0
+grow_horizontal = 2
+theme = ExtResource("3_4l867")
+theme_override_colors/font_color = Color(0.239216, 0.447059, 0.858824, 1)
+text = "1"
+horizontal_alignment = 1
+
+[node name="Second Digit" type="Label" parent="Frame/Double (Left)"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 4.5
+offset_top = 1.0
+offset_right = 11.5
+offset_bottom = 14.0
+grow_horizontal = 2
+theme = ExtResource("3_4l867")
+theme_override_colors/font_color = Color(0.239216, 0.447059, 0.858824, 1)
+text = "1"
+horizontal_alignment = 1
+
+[node name="Single (Right)" type="Label" parent="Frame"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 11.0
+offset_top = 6.0
+offset_right = 18.0
+offset_bottom = 19.0
+grow_horizontal = 2
+theme = ExtResource("3_4l867")
+theme_override_colors/font_color = Color(0.858824, 0.239216, 0.239216, 1)
+text = "1"
+horizontal_alignment = 1
+
+[node name="Double (Right)" type="Label" parent="Frame"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 14.0
+offset_bottom = 19.0
+grow_horizontal = 2
+theme = ExtResource("3_4l867")
+theme_override_colors/font_color = Color(0.858824, 0.239216, 0.239216, 1)
+text = "1"
+horizontal_alignment = 1
+
+[node name="Second Digit" type="Label" parent="Frame/Double (Right)"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 4.5
+offset_top = -1.0
+offset_right = 11.5
+offset_bottom = 12.0
+grow_horizontal = 2
+theme = ExtResource("3_4l867")
+theme_override_colors/font_color = Color(0.858824, 0.239216, 0.239216, 1)
+text = "1"
+horizontal_alignment = 1
+
+[node name="Blue Line" parent="." instance=ExtResource("4_jhhrp")]
+layout_mode = 1
+offset_left = -6.0
+offset_right = -2.0
+tween_time = 0.75
+
+[node name="Red Line" parent="." instance=ExtResource("4_jhhrp")]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 2.0
+offset_right = 6.0
+grow_horizontal = 0
+color = Color(0.858824, 0.239216, 0.239216, 1)
+tween_time = 0.75
+end_x = 286

@@ -1,0 +1,123 @@
+[gd_scene load_steps=4 format=3 uid="uid://du8wi318gpypv"]
+
+[ext_resource type="Script" path="res://ui/pause_menu/pause_menu.gd" id="2_1ync3"]
+[ext_resource type="Script" path="res://ui/pause_menu/pause_button.gd" id="3_tr1vd"]
+[ext_resource type="Theme" uid="uid://dkxvvvaej3y2s" path="res://themes/basic.tres" id="3_usu2g"]
+
+[node name="Pause Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_usu2g")
+script = ExtResource("2_1ync3")
+metadata/_edit_vertical_guides_ = [227.0]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.196078)
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -40.0
+offset_right = 45.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Paused Text" type="Label" parent="Buttons"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+theme = ExtResource("3_usu2g")
+theme_override_font_sizes/font_size = 28
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Resume Button" type="Control" parent="Buttons"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 29.0
+offset_right = 84.0
+offset_bottom = 43.0
+script = ExtResource("3_tr1vd")
+default_color = Color(0.827451, 0.886275, 0.901961, 1)
+hover_color = Color(1, 1, 1, 1)
+metadata/_edit_group_ = true
+
+[node name="Option Name" type="Label" parent="Buttons/Resume Button"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 44.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0.827451, 0.886275, 0.901961, 1)
+text = "Resume"
+
+[node name="Restart Button" type="Control" parent="Buttons"]
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 43.0
+offset_right = 84.0
+offset_bottom = 57.0
+script = ExtResource("3_tr1vd")
+default_color = Color(0.827451, 0.886275, 0.901961, 1)
+hover_color = Color(1, 1, 1, 1)
+metadata/_edit_group_ = true
+
+[node name="Option Name" type="Label" parent="Buttons/Restart Button"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 44.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0.827451, 0.886275, 0.901961, 1)
+text = "Restart"
+
+[node name="Exit Button" type="Control" parent="Buttons"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 57.0
+offset_right = 84.0
+offset_bottom = 71.0
+script = ExtResource("3_tr1vd")
+default_color = Color(0.827451, 0.886275, 0.901961, 1)
+hover_color = Color(1, 1, 1, 1)
+metadata/_edit_group_ = true
+
+[node name="Option Name" type="Label" parent="Buttons/Exit Button"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 53.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0.827451, 0.886275, 0.901961, 1)
+text = "Exit Game"
+
+[connection signal="control_pressed" from="Buttons/Resume Button" to="." method="set_time_scale"]
+[connection signal="gui_input" from="Buttons/Resume Button" to="Buttons/Resume Button" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Buttons/Resume Button" to="Buttons/Resume Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Resume Button" to="Buttons/Resume Button" method="_on_mouse_exited"]
+[connection signal="control_pressed" from="Buttons/Restart Button" to="." method="set_time_scale"]
+[connection signal="control_pressed" from="Buttons/Restart Button" to="Buttons/Restart Button" method="reload_scene"]
+[connection signal="gui_input" from="Buttons/Restart Button" to="Buttons/Restart Button" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Buttons/Restart Button" to="Buttons/Restart Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Restart Button" to="Buttons/Restart Button" method="_on_mouse_exited"]
+[connection signal="control_pressed" from="Buttons/Exit Button" to="Buttons/Exit Button" method="quit_game"]
+[connection signal="gui_input" from="Buttons/Exit Button" to="Buttons/Exit Button" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Buttons/Exit Button" to="Buttons/Exit Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/Exit Button" to="Buttons/Exit Button" method="_on_mouse_exited"]

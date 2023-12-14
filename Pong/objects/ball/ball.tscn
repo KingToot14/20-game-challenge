@@ -9,11 +9,11 @@ radius = 3.0
 [node name="Ball" type="CharacterBody2D"]
 position = Vector2(160, 90)
 script = ExtResource("1_1pk61")
-move_speed = 100.0
+speed_per_collision = 2.5
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_obxsb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6ugbr")

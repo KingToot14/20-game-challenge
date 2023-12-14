@@ -4,11 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://dnbdlw3kmoi8v" path="res://objects/paddle/paddle.png" id="2_6r0tc"]
 
 [node name="Paddle (Left)" type="CharacterBody2D"]
+motion_mode = 1
+slide_on_ceiling = false
 script = ExtResource("1_2ejrh")
-move_speed = 100.0
+paddle_size = 52.0
+move_speed = 75.0
+metadata/_edit_group_ = true
 
 [node name="Ball Collision" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-5, -40, 2, -40, 5, -22, 5, 22, 2, 40, -5, 40)
+polygon = PackedVector2Array(-5, -26, 2, -26, 5, -11, 5, 11, 2, 26, -5, 26)
 
 [node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.239216, 0.447059, 0.858824, 1)
 texture = ExtResource("2_6r0tc")

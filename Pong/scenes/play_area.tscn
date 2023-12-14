@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d15s4rqptl6xx"]
-
-[ext_resource type="PackedScene" uid="uid://ddnryixmb5dlu" path="res://objects/ball/ball.tscn" id="1_5jf54"]
+[gd_scene load_steps=2 format=3 uid="uid://d15s4rqptl6xx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72528"]
 size = Vector2(320, 20)
@@ -16,5 +14,3 @@ debug_color = Color(0.858824, 0.858824, 0.858824, 0.419608)
 position = Vector2(160, 190)
 shape = SubResource("RectangleShape2D_72528")
 debug_color = Color(0.86, 0.86, 0.86, 0.419608)
-
-[node name="Ball" parent="." instance=ExtResource("1_5jf54")]
