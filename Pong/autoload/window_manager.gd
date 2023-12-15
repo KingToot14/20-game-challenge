@@ -1,7 +1,7 @@
 extends Node
 
 # --- Variables --- #
-var window_scale: int = 2;
+var window_scale: int = 4;
 var max_scale: int = 1;
 
 var match_proj_settings: bool = true;
@@ -21,13 +21,13 @@ func _ready() -> void:
 	
 	set_window_scale(window_scale);
 
-func _process(_delta) -> void:
-	if Input.is_action_just_pressed("toggle_fullscreen"):
+func _input(event) -> void:
+	if event.is_action_pressed("toggle_fullscreen"):
 		toggle_fullscreen();
 	elif not is_fullscreen():
-		if Input.is_action_just_pressed("decrease_resolution"):
+		if event.is_action_pressed("decrease_resolution"):
 			modify_window_scale(-1);
-		elif Input.is_action_just_pressed("increase_resolution"):
+		elif event.is_action_pressed("increase_resolution"):
 			modify_window_scale(1);
 
 func modify_window_scale(delta: int) -> void: set_window_scale(window_scale + delta);

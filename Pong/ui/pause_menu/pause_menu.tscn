@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://du8wi318gpypv"]
+[gd_scene load_steps=5 format=3 uid="uid://du8wi318gpypv"]
 
 [ext_resource type="Script" path="res://ui/pause_menu/pause_menu.gd" id="2_1ync3"]
 [ext_resource type="Script" path="res://ui/pause_menu/pause_button.gd" id="3_tr1vd"]
 [ext_resource type="Theme" uid="uid://dkxvvvaej3y2s" path="res://themes/basic.tres" id="3_usu2g"]
+[ext_resource type="AudioStream" uid="uid://cbu8lwwnj5d5d" path="res://audio/sfx/menu_hover.wav" id="4_blkiw"]
 
 [node name="Pause Menu" type="Control"]
 layout_mode = 3
@@ -59,6 +60,7 @@ offset_bottom = 43.0
 script = ExtResource("3_tr1vd")
 default_color = Color(0.827451, 0.886275, 0.901961, 1)
 hover_color = Color(1, 1, 1, 1)
+hover_sfx = ExtResource("4_blkiw")
 metadata/_edit_group_ = true
 
 [node name="Option Name" type="Label" parent="Buttons/Resume Button"]
@@ -78,6 +80,7 @@ offset_bottom = 57.0
 script = ExtResource("3_tr1vd")
 default_color = Color(0.827451, 0.886275, 0.901961, 1)
 hover_color = Color(1, 1, 1, 1)
+hover_sfx = ExtResource("4_blkiw")
 metadata/_edit_group_ = true
 
 [node name="Option Name" type="Label" parent="Buttons/Restart Button"]
@@ -98,6 +101,7 @@ offset_bottom = 71.0
 script = ExtResource("3_tr1vd")
 default_color = Color(0.827451, 0.886275, 0.901961, 1)
 hover_color = Color(1, 1, 1, 1)
+hover_sfx = ExtResource("4_blkiw")
 metadata/_edit_group_ = true
 
 [node name="Option Name" type="Label" parent="Buttons/Exit Button"]
@@ -108,7 +112,8 @@ offset_bottom = 19.0
 theme_override_colors/font_color = Color(0.827451, 0.886275, 0.901961, 1)
 text = "Exit Game"
 
-[connection signal="control_pressed" from="Buttons/Resume Button" to="." method="set_time_scale"]
+[connection signal="control_pressed" from="Buttons/Resume Button" to="Buttons/Resume Button" method="unpause_game"]
+[connection signal="control_pressed" from="Buttons/Resume Button" to="." method="set_time_scale" binds= [1.0]]
 [connection signal="gui_input" from="Buttons/Resume Button" to="Buttons/Resume Button" method="_on_gui_input"]
 [connection signal="mouse_entered" from="Buttons/Resume Button" to="Buttons/Resume Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Buttons/Resume Button" to="Buttons/Resume Button" method="_on_mouse_exited"]

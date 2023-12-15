@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://dsm1wlka483p1"]
+
+[ext_resource type="AudioStream" uid="uid://cjx67vcj0u080" path="res://audio/sfx/collision_1.wav" id="1_p2kji"]
+
+[resource]
+streams_count = 1
+random_pitch = 1.03
+stream_0/stream = ExtResource("1_p2kji")
+stream_0/weight = 1.0

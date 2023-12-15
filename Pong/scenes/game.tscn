@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://sllv0laqrqrx"]
+[gd_scene load_steps=11 format=3 uid="uid://sllv0laqrqrx"]
 
 [ext_resource type="PackedScene" uid="uid://d15s4rqptl6xx" path="res://scenes/play_area.tscn" id="1_ryohn"]
 [ext_resource type="PackedScene" uid="uid://bjxqrw5ygcpef" path="res://ui/background.tscn" id="1_x35nn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://du8wi318gpypv" path="res://ui/pause_menu/pause_menu.tscn" id="6_6js8c"]
 [ext_resource type="PackedScene" uid="uid://co4gqitup4b3i" path="res://ui/game_ui/game_ui.tscn" id="6_k74d8"]
 [ext_resource type="PackedScene" uid="uid://jwhvigh365hr" path="res://ui/title_screen/title.tscn" id="9_h1kou"]
+[ext_resource type="Script" path="res://objects/paddle/player_controlled.gd" id="10_q4rop"]
 
 [node name="Game" type="Node"]
 
@@ -36,6 +37,16 @@ visible = false
 
 [node name="Score Manager" parent="." node_paths=PackedStringArray("game_ui") instance=ExtResource("5_nqnau")]
 game_ui = NodePath("../Game UI")
+
+[node name="Left Paddle Control" type="Node" parent="." node_paths=PackedStringArray("paddle")]
+script = ExtResource("10_q4rop")
+paddle = NodePath("../Paddle (Left)")
+paddle_name = "player_1"
+
+[node name="Right Paddle Control" type="Node" parent="." node_paths=PackedStringArray("paddle")]
+script = ExtResource("10_q4rop")
+paddle = NodePath("../Paddle (Right)")
+paddle_name = "player_2"
 
 [connection signal="point_scored" from="Ball" to="Game UI" method="play_score_effect"]
 [connection signal="point_scored" from="Ball" to="Score Manager" method="increment_score"]

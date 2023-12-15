@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 WindowManager="*res://autoload/window_manager.gd"
 SceneManager="*res://autoload/scene_manager.gd"
 TimeScaleManager="*res://autoload/time_scale_manager.gd"
+AudioManager="*res://autoload/audio_manager.gd"
 
 [display]
 

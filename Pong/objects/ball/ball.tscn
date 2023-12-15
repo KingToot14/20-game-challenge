@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddnryixmb5dlu"]
+[gd_scene load_steps=5 format=3 uid="uid://ddnryixmb5dlu"]
 
 [ext_resource type="Script" path="res://objects/ball/ball.gd" id="1_1pk61"]
+[ext_resource type="AudioStream" uid="uid://dsm1wlka483p1" path="res://audio/sfx/collision.tres" id="2_ldg3t"]
 [ext_resource type="Texture2D" uid="uid://cnnfykkyms07t" path="res://objects/ball/ball.png" id="2_obxsb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ugbr"]
@@ -10,6 +11,7 @@ radius = 3.0
 position = Vector2(160, 90)
 script = ExtResource("1_1pk61")
 speed_per_collision = 2.5
+collision_sfx = ExtResource("2_ldg3t")
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]

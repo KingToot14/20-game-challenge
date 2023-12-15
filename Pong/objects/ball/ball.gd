@@ -12,6 +12,9 @@ var move_speed: float
 @export var spawn_point: Vector2
 var direction: Vector2
 
+@export_category("SFX")
+@export var collision_sfx: AudioStream
+
 # --- Functions --- #
 func _ready():
 	point_scored.connect(spawn_ball)
@@ -21,7 +24,9 @@ func _physics_process(delta):
 	delta *= TimeScaleManager.time_scale
 	
 	var collision_info = move_and_collide(direction * move_speed * delta)
+	
 	if collision_info:
+		AudioManager.play_sfx(collision_sfx)
 		move_speed += speed_per_collision
 		direction = direction.bounce(collision_info.get_normal())
 	

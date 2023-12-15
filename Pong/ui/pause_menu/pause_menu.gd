@@ -22,8 +22,6 @@ func set_pauseable():
 	pauseable = true
 
 func set_menu_visibility():
-	print(TimeScaleManager.paused)
-	
 	background.visible = TimeScaleManager.paused
 	frame.visible = TimeScaleManager.paused
 

@@ -12,24 +12,17 @@ signal control_pressed
 
 var tween = null
 
+@export_category("SFX")
+@export var hover_sfx: AudioStream
+
 # --- Functions --- #
 func _on_mouse_entered():
-	label.add_theme_color_override('font_color', hover_color)
+	AudioManager.play_sfx(hover_sfx, true)
 	
-	if tween:
-		tween.kill()
-	tween = create_tween()
-	
-	tween.tween_property(label, 'position:x', 4, 0.1)
+	tween_to()
 
 func _on_mouse_exited():
-	label.add_theme_color_override('font_color', default_color)
-	
-	if tween:
-		tween.kill()
-	tween = create_tween()
-	
-	tween.tween_property(label, 'position:x', 0, 0.1)
+	tween_back()
 
 func _on_gui_input(event):
 	if not (event is InputEventMouseButton):
@@ -38,8 +31,28 @@ func _on_gui_input(event):
 	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		control_pressed.emit()
 
+# --- Tweening --- #
+func tween_to():
+	label.add_theme_color_override('font_color', hover_color)
+	
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	
+	tween.tween_property(label, 'position:x', 4, 0.1)
+
+func tween_back():
+	label.add_theme_color_override('font_color', default_color)
+	
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	
+	tween.tween_property(label, 'position:x', 0, 0.1)
+
 # --- Button Opetions --- #
 func unpause_game():
+	tween_back()
 	TimeScaleManager.set_time_scale(1.0)
 
 func reload_scene():
