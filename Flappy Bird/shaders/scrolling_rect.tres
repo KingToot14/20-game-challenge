@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bb6nu8vqu5ixq"]
+
+[ext_resource type="Shader" path="res://shaders/scrolling_rect.gdshader" id="1_2urcq"]
+
+[resource]
+shader = ExtResource("1_2urcq")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/use_global_scroll = true
+shader_parameter/scroll_speed = 0.05
