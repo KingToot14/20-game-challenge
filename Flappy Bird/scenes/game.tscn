@@ -1,15 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://c288on2od7ps7"]
+[gd_scene load_steps=6 format=3 uid="uid://c288on2od7ps7"]
 
+[ext_resource type="Script" path="res://managers/score_manager.gd" id="1_jpb3i"]
 [ext_resource type="PackedScene" uid="uid://dyhwij0bn12r5" path="res://scenes/play_area.tscn" id="1_n15et"]
 [ext_resource type="PackedScene" uid="uid://c76jeaxwpmlse" path="res://objects/owl.tscn" id="2_0s1nj"]
 [ext_resource type="PackedScene" uid="uid://cl533sydmjai6" path="res://objects/obstacle/obstacle.tscn" id="3_pels5"]
+[ext_resource type="PackedScene" uid="uid://bp38st4gyhqs6" path="res://ui/game_ui.tscn" id="5_jo8kj"]
 
 [node name="Game" type="Node"]
+
+[node name="ScoreManager" type="Node2D" parent="."]
+script = ExtResource("1_jpb3i")
 
 [node name="Play Area" parent="." instance=ExtResource("1_n15et")]
 
 [node name="Owl" parent="." instance=ExtResource("2_0s1nj")]
-position = Vector2(32, 90)
+position = Vector2(90, 90)
 
 [node name="Obstacle" parent="." instance=ExtResource("3_pels5")]
 position = Vector2(359, 75)
+
+[node name="Game UI" parent="." instance=ExtResource("5_jo8kj")]
+
+[connection signal="score_updated" from="ScoreManager" to="Game UI" method="update_score"]
+[connection signal="passed_collectible" from="Owl" to="ScoreManager" method="modify_score" binds= [1]]

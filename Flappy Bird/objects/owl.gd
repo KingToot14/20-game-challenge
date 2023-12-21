@@ -2,6 +2,7 @@ class_name Owl
 extends CharacterBody2D
 
 # --- Signals --- #
+signal passed_collectible()
 signal game_over()
 
 # --- Variables --- #
@@ -45,11 +46,14 @@ func _input(event):
 		set_raw_velocity(-jump_power)
 
 func handle_collision():
+	if not alive: return
+	
 	game_over.emit()
 
-func increment_score():
-	score += 1
-	print(score)
+func pass_collectible():
+	if not alive: return
+	
+	passed_collectible.emit()
 
 func handle_game_over():
 	alive = false

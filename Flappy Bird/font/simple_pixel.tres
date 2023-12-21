@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://bo38ubkr8dqyd"]
+
+[ext_resource type="FontFile" uid="uid://b4b2w56wldxns" path="res://font/simple_pixel_8x15.ttf" id="1_lmakt"]
+
+[resource]
+base_font = ExtResource("1_lmakt")
+spacing_space = 2

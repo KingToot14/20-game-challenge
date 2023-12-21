@@ -19,7 +19,7 @@ func _process(delta):
 
 func _on_collectible_entered(body: Owl):
 	collected.emit()
-	body.increment_score()
+	body.pass_collectible()
 
 func set_interactable(val: bool):
 	collectible.visible = val
