@@ -8,11 +8,12 @@ signal game_over()
 # --- Variables --- #
 var alive := true
 
-@export var jump_power: float = 250
+@export var rotation_angle := 30.0
 
-@export var gravity: float = 250
-
-@export var terminal_velocity: float = 100
+@export_group("Forces")
+@export var jump_power := 250.0
+@export var gravity := 250.0
+@export var terminal_velocity := 100.0
 var raw_velocity: float
 
 var score: int = 0
@@ -21,9 +22,14 @@ var score: int = 0
 var DANGER_FLAG = 0b0001
 var OBJECT_FLAG = 0b0010
 
+@onready var sprite: Sprite2D = $"Sprite"
+
 # --- Functions --- #
 func _ready():
 	game_over.connect(handle_game_over)
+
+func _process(delta):
+	sprite.rotation_degrees = rotation_angle * (velocity.y / terminal_velocity)
 
 func _physics_process(delta):
 	if position.y > 200: return
