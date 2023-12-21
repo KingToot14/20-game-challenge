@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt1e31sy3l5m0"]
+[gd_scene load_steps=8 format=3 uid="uid://bt1e31sy3l5m0"]
 
 [ext_resource type="Material" uid="uid://bb6nu8vqu5ixq" path="res://shaders/scrolling_rect.tres" id="1_2wd6a"]
 [ext_resource type="Texture2D" uid="uid://bhkbyn5cg1ue3" path="res://art/environment/floor.png" id="1_f5hda"]
+[ext_resource type="Texture2D" uid="uid://bx2ui3utno65t" path="res://art/environment/sky.png" id="1_fnil6"]
 [ext_resource type="Shader" path="res://shaders/scrolling_rect.gdshader" id="1_long2"]
 [ext_resource type="Texture2D" uid="uid://ccd1bmgs1jq4x" path="res://art/environment/clouds.png" id="2_ftbew"]
 
@@ -25,7 +26,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background-solid" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +35,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.333333, 0.815686, 0.901961, 1)
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_fnil6")
 
 [node name="Clouds (Bottom)" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_c3c5y")

@@ -1,20 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://c76jeaxwpmlse"]
 
-[ext_resource type="Script" path="res://objects/movement_controller.gd" id="1_l8u0s"]
+[ext_resource type="Script" path="res://objects/owl.gd" id="1_c52a8"]
 [ext_resource type="Texture2D" uid="uid://cg8wx7pe8bkhq" path="res://art/objects/owl.png" id="2_hhqth"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs0ox"]
-radius = 8.06226
+radius = 7.0
 
 [node name="Owl" type="CharacterBody2D"]
 collision_mask = 14
-script = ExtResource("1_l8u0s")
+script = ExtResource("1_c52a8")
 jump_power = 100.0
 terminal_velocity = 200.0
-metadata/_edit_group_ = true
-
-[node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xs0ox")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+z_index = 100
 texture = ExtResource("2_hhqth")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_xs0ox")

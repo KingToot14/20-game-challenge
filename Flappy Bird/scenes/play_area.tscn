@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyhwij0bn12r5"]
 
 [ext_resource type="PackedScene" uid="uid://bt1e31sy3l5m0" path="res://scenes/environment.tscn" id="1_l1b67"]
-[ext_resource type="PackedScene" uid="uid://c76jeaxwpmlse" path="res://objects/owl.tscn" id="2_b3d4h"]
+[ext_resource type="Script" path="res://objects/obstacle/danger.gd" id="2_p44i3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bf7vc"]
 size = Vector2(320, 12)
@@ -13,20 +13,18 @@ size = Vector2(320, 20)
 
 [node name="Environment" parent="." instance=ExtResource("1_l1b67")]
 
-[node name="Ground" type="StaticBody2D" parent="Environment"]
+[node name="Ground" type="Area2D" parent="."]
 collision_layer = 2
+script = ExtResource("2_p44i3")
 
-[node name="Collision" type="CollisionShape2D" parent="Environment/Ground"]
+[node name="Collision" type="CollisionShape2D" parent="Ground"]
 position = Vector2(160, 174)
 shape = SubResource("RectangleShape2D_bf7vc")
 debug_color = Color(1, 0, 0, 0.419608)
 
-[node name="Celing" type="StaticBody2D" parent="Environment"]
+[node name="Celing" type="StaticBody2D" parent="."]
 collision_layer = 4
 
-[node name="Collision" type="CollisionShape2D" parent="Environment/Celing"]
+[node name="Collision" type="CollisionShape2D" parent="Celing"]
 position = Vector2(160, -10)
 shape = SubResource("RectangleShape2D_w3ksk")
-
-[node name="Owl" parent="." instance=ExtResource("2_b3d4h")]
-position = Vector2(50, 80)
