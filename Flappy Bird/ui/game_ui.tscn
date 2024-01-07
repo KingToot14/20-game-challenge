@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bp38st4gyhqs6"]
 
 [ext_resource type="Script" path="res://ui/ui_manager.gd" id="1_ulafb"]
-[ext_resource type="Theme" uid="uid://bebg6xxd8bv8m" path="res://themes/score_text.tres" id="2_1qxh5"]
+[ext_resource type="Theme" uid="uid://cxpdm1ejwhp1j" path="res://themes/basic.tres" id="2_8kueb"]
 
-[node name="Game UI" type="Control" node_paths=PackedStringArray("highscore_label", "score_label")]
+[node name="HUD" type="Control" node_paths=PackedStringArray("high_score_label", "score_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,18 +11,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ulafb")
-highscore_label = NodePath("Highscore Label/Count")
+high_score_label = NodePath("High Score Label/Count")
 score_label = NodePath("Score Label/Count")
 
-[node name="Highscore Label" type="Label" parent="."]
+[node name="High Score Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 46.0
 offset_bottom = 21.0
-theme = ExtResource("2_1qxh5")
-text = "High:"
+theme = ExtResource("2_8kueb")
+theme_override_colors/font_color = Color(0.839216, 0.690196, 0.152941, 1)
+text = "Best:"
 
-[node name="Count" type="Label" parent="Highscore Label"]
+[node name="Count" type="Label" parent="High Score Label"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -34,7 +36,8 @@ offset_right = 42.0
 offset_bottom = 8.5
 grow_horizontal = 0
 grow_vertical = 2
-theme = ExtResource("2_1qxh5")
+theme = ExtResource("2_8kueb")
+theme_override_colors/font_color = Color(0.839216, 0.690196, 0.152941, 1)
 text = "127"
 
 [node name="Score Label" type="Label" parent="."]
@@ -43,7 +46,8 @@ offset_left = 4.0
 offset_top = 16.0
 offset_right = 46.0
 offset_bottom = 33.0
-theme = ExtResource("2_1qxh5")
+theme = ExtResource("2_8kueb")
+theme_override_colors/font_color = Color(0.0588235, 0.54902, 0.0941176, 1)
 text = "Score:"
 
 [node name="Count" type="Label" parent="Score Label"]
@@ -58,5 +62,6 @@ offset_right = 42.0
 offset_bottom = 8.5
 grow_horizontal = 0
 grow_vertical = 2
-theme = ExtResource("2_1qxh5")
+theme = ExtResource("2_8kueb")
+theme_override_colors/font_color = Color(0.0588235, 0.54902, 0.0941176, 1)
 text = "17"

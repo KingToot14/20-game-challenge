@@ -2,11 +2,16 @@ class_name Owl
 extends CharacterBody2D
 
 # --- Signals --- #
+signal game_started()
+
 signal passed_collectible()
 signal game_over()
 
 # --- Variables --- #
+var playing := false
 var alive := true
+
+@export var shadow: Sprite2D
 
 @export var rotation_angle := 30.0
 
@@ -27,11 +32,21 @@ var OBJECT_FLAG = 0b0010
 # --- Functions --- #
 func _ready():
 	game_over.connect(handle_game_over)
+	
+	if shadow:
+		game_over.connect(hide_shadow)
 
 func _process(delta):
-	sprite.rotation_degrees = rotation_angle * (velocity.y / terminal_velocity)
+	if not playing: return
+	
+	if alive:
+		sprite.rotation_degrees = rotation_angle * (velocity.y / terminal_velocity)
+	else:
+		sprite.rotation_degrees = 80
 
 func _physics_process(delta):
+	if not playing: return
+	
 	if position.y > 200: return
 	
 	add_raw_velocity(gravity * delta)
@@ -49,6 +64,11 @@ func _input(event):
 	if not alive: return
 	
 	if event.is_action_pressed('player_jump'):
+		if not playing:
+			playing = true
+			game_started.emit()
+			get_tree().call_group('obstacles', 'start_moving')
+		
 		set_raw_velocity(-jump_power)
 
 func handle_collision():
@@ -63,9 +83,11 @@ func pass_collectible():
 
 func handle_game_over():
 	alive = false
-	print("Game Over")
 
 func add_raw_velocity(delta): set_raw_velocity(raw_velocity + delta)
 
 func set_raw_velocity(vel):
 	raw_velocity = vel
+
+func hide_shadow():
+	shadow.visible = false

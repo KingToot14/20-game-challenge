@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5yf23oi5o5bc"]
+
+[ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_5m7do"]
+[ext_resource type="Theme" uid="uid://cxpdm1ejwhp1j" path="res://themes/basic.tres" id="1_h1jml"]
+[ext_resource type="RichTextEffect" uid="uid://berboi27eyi50" path="res://font/effects/new_rich_text_effect.tres" id="3_jixfc"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5m7do")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.0
+offset_top = 24.0
+offset_right = 59.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme = ExtResource("1_h1jml")
+theme_override_colors/font_color = Color(0.101961, 0.101961, 0.101961, 1)
+theme_override_font_sizes/font_size = 28
+text = "Flappy Owl"
+horizontal_alignment = 1
+
+[node name="Controls" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_top = 60.0
+offset_right = 99.0
+offset_bottom = 132.0
+grow_horizontal = 2
+theme = ExtResource("1_h1jml")
+theme_override_colors/default_color = Color(0.101961, 0.101961, 0.101961, 1)
+bbcode_enabled = true
+text = "Controls:
+[img=top,top region=0,60,36,12]res://art/ui/key_indicator.png[/img] [v_off px=1]| Flap Wings[/v_off]
+[img=top,top region=24,48,24,12]res://art/ui/key_indicator.png[/img] [v_off px=1]| Delete High Score[/v_off]
+[img=top,top region=36,24,12,12]res://art/ui/key_indicator.png[/img] [v_off px=1]| Start New Run[/v_off]
+[img=top,top region=60,36,24,12]res://art/ui/key_indicator.png[/img] [v_off px=1]| Quit Game[/v_off]"
+scroll_active = false
+custom_effects = [ExtResource("3_jixfc")]

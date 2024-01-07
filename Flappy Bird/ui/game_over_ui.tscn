@@ -1,0 +1,183 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqp7fp5kqducl"]
+
+[ext_resource type="Texture2D" uid="uid://c0o7s43l4fpuh" path="res://art/ui/panel.png" id="1_eq46c"]
+[ext_resource type="Script" path="res://ui/game_over_panel.gd" id="1_gf1tu"]
+[ext_resource type="Theme" uid="uid://cxpdm1ejwhp1j" path="res://themes/basic.tres" id="2_3lkr4"]
+[ext_resource type="Texture2D" uid="uid://b7fj386h685d2" path="res://art/ui/score_panel.png" id="3_wbvkr"]
+[ext_resource type="RichTextEffect" uid="uid://berboi27eyi50" path="res://font/effects/new_rich_text_effect.tres" id="5_y7gb3"]
+
+[node name="Game Over UI" type="Control" node_paths=PackedStringArray("high_score_label", "score_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gf1tu")
+high_score_label = NodePath("Panel/High Score/Count")
+score_label = NodePath("Panel/Score/Count")
+anim_rotation_amp = 10.0
+
+[node name="Panel" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -40.0
+offset_right = 48.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_eq46c")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 4.0
+offset_right = 31.0
+offset_bottom = 21.0
+grow_horizontal = 2
+theme = ExtResource("2_3lkr4")
+theme_override_colors/font_color = Color(0.721569, 0.0705882, 0.0705882, 1)
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="High Score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 19.0
+offset_right = 31.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme = ExtResource("2_3lkr4")
+theme_override_colors/font_color = Color(0.878431, 0.768627, 0.211765, 1)
+text = "Best"
+horizontal_alignment = 1
+
+[node name="Panel" type="NinePatchRect" parent="Panel/High Score"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.5
+offset_top = -5.0
+offset_right = 30.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_wbvkr")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Count" type="Label" parent="Panel/High Score"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.839216, 0.690196, 0.152941, 1)
+text = "1,111,111"
+horizontal_alignment = 1
+
+[node name="New Indicator" type="Label" parent="Panel/High Score"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.5
+offset_right = -16.5
+offset_bottom = 17.0
+grow_horizontal = 2
+pivot_offset = Vector2(13, 5)
+theme = ExtResource("2_3lkr4")
+theme_override_colors/font_color = Color(0.878431, 0.768627, 0.211765, 1)
+text = "New!"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 48.0
+offset_right = 31.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme = ExtResource("2_3lkr4")
+theme_override_colors/font_color = Color(0.113725, 0.658824, 0.141176, 1)
+text = "Score"
+horizontal_alignment = 1
+
+[node name="Panel" type="NinePatchRect" parent="Panel/Score"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.5
+offset_top = -5.0
+offset_right = 30.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_wbvkr")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Count" type="Label" parent="Panel/Score"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.0588235, 0.54902, 0.0941176, 1)
+text = "1,111,111"
+horizontal_alignment = 1
+
+[node name="Restart Label" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = 2.0
+offset_right = 57.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_3lkr4")
+theme_override_colors/default_color = Color(0.101961, 0.101961, 0.101961, 1)
+bbcode_enabled = true
+text = "[v_off px=1][center]Press [img=top,top region=36,24,12,12]res://art/ui/key_indicator.png[/img] to restart[/center][/v_off]"
+scroll_active = false
+custom_effects = [ExtResource("5_y7gb3")]

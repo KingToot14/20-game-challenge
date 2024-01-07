@@ -1,0 +1,34 @@
+# - January 6, 2024
+Trying to get the full game loop down - main menu => gameplay => death => score => restart
+
+Gameplay:
+	Added more obstacles so there's actually a challenge
+	Added a button ('R') to restart the game
+	Added a button ('backspace') to reset the high score
+	Added a button ('esc') to quit the game
+	Only begin movement (owl and obstacles) after the space bar has been pressed for the first time
+
+Polish:
+	Hides the owl's shadow on death
+	Changed the collectible animations to use the built in Time class and not their own counters
+
+UI:
+	High score now only updates after death
+	Added a 'game over' menu showing the score with a special indicator if a new high score was reached
+	Added a main menu scene showing the title and some controls
+	Changed score text colors
+
+
+# - January 5, 2024
+Today I did a little bit of polish as well as working on the score system and UI
+
+Polish:
+	Added some animation (using sine waves) to the collectibles (bobbing up/down and rotating back and forth)
+	When the player dies, set the owl's rotation to be sharply downwards (80 degrees)
+
+Score System:
+	Added a high score system that maintains the highest score between plays
+	Added a save system to maintain the high score even after the game has been closed and reopened (high.score)
+
+UI Changes:
+	Changed the color of the score text to a green (to match the leaves on the twig collectibles)

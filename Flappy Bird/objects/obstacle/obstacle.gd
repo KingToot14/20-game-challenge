@@ -10,6 +10,9 @@ signal object_reset()
 
 # --- Functions --- #
 func _ready():
+	var movement_controller := $"Simple Movement"
+	movement_controller.add_to_group('obstacles')
+	
 	object_reset.connect(set_interactable.bind(true))
 	collected.connect(set_interactable.bind(false))
 

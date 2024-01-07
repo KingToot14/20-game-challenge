@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dukskm0guo8sj"]
+[gd_scene load_steps=4 format=3 uid="uid://dukskm0guo8sj"]
 
+[ext_resource type="Script" path="res://objects/collectible/collectible.gd" id="1_grng3"]
 [ext_resource type="Texture2D" uid="uid://bug7vcb8x2vwg" path="res://art/objects/twig.png" id="2_xw5wl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ojisi"]
@@ -7,6 +8,11 @@ radius = 8.0
 
 [node name="Collectible" type="Area2D"]
 collision_layer = 8
+script = ExtResource("1_grng3")
+anim_position_amp = 1.0
+anim_rotation_amp = 0.1
+anim_rotation_speed = 4.0
+metadata/_edit_group_ = true
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ojisi")
