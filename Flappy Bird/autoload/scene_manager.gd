@@ -6,7 +6,10 @@ func _input(event):
 		quit_game()
 	
 	if event.is_action_pressed('restart_run'):
-		reload_scene()
+		TransitionManager.reload_scene()
+
+func load_scene(scn: PackedScene):
+	get_tree().change_scene_to_packed(scn)
 
 func reload_scene():
 	get_tree().reload_current_scene()

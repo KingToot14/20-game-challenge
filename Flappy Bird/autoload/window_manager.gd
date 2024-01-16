@@ -19,7 +19,8 @@ func _ready() -> void:
 	
 	max_scale = min(scales.x, scales.y);
 	
-	set_window_scale(window_scale);
+	toggle_fullscreen()
+	#set_window_scale(window_scale);
 
 func _input(event) -> void:
 	if event.is_action_pressed("toggle_fullscreen"):

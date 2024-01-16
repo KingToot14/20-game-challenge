@@ -1,0 +1,18 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://cxi1mo0xu8tvp"]
+
+[ext_resource type="AudioStream" uid="uid://dqmpc0d0bu4uf" path="res://objects/owl/sfx/branch_munch-01.wav" id="1_p52jv"]
+[ext_resource type="AudioStream" uid="uid://d2ot8vfgod1pi" path="res://objects/owl/sfx/branch_munch-02.wav" id="2_ckpxl"]
+[ext_resource type="AudioStream" uid="uid://0tvkkm1yrb58" path="res://objects/owl/sfx/branch_munch-03.wav" id="3_4t3dn"]
+[ext_resource type="AudioStream" uid="uid://di4fk0qqg0hok" path="res://objects/owl/sfx/branch_munch-04.wav" id="4_qxtb1"]
+
+[resource]
+streams_count = 4
+random_pitch = 1.0
+stream_0/stream = ExtResource("1_p52jv")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_ckpxl")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_4t3dn")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_qxtb1")
+stream_3/weight = 1.0

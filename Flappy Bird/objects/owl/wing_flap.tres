@@ -1,0 +1,18 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://bveieyi1wje84"]
+
+[ext_resource type="AudioStream" uid="uid://bwsqb5cx7yi6x" path="res://objects/owl/sfx/wing_flap-01.wav" id="1_35dux"]
+[ext_resource type="AudioStream" uid="uid://bomm4txnbuxq4" path="res://objects/owl/sfx/wing_flap-02.wav" id="2_k04wl"]
+[ext_resource type="AudioStream" uid="uid://boprwiqplofte" path="res://objects/owl/sfx/wing_flap-03.wav" id="3_i643d"]
+[ext_resource type="AudioStream" uid="uid://dp7lh5ll28de6" path="res://objects/owl/sfx/wing_flap-04.wav" id="4_2mmd4"]
+
+[resource]
+streams_count = 4
+random_pitch = 1.0
+stream_0/stream = ExtResource("1_35dux")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_k04wl")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_i643d")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_2mmd4")
+stream_3/weight = 1.0

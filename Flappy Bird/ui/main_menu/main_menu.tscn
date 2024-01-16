@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5yf23oi5o5bc"]
+[gd_scene load_steps=9 format=3 uid="uid://c5yf23oi5o5bc"]
 
 [ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_5m7do"]
 [ext_resource type="Theme" uid="uid://cxpdm1ejwhp1j" path="res://themes/basic.tres" id="1_h1jml"]
 [ext_resource type="RichTextEffect" uid="uid://berboi27eyi50" path="res://font/effects/new_rich_text_effect.tres" id="3_jixfc"]
+[ext_resource type="Texture2D" uid="uid://cevrur0dijooo" path="res://art/ui/badges/locked_badge.tres" id="4_lptfw"]
+[ext_resource type="Script" path="res://ui/main_menu/main_menu_badge.gd" id="4_oyfbf"]
+[ext_resource type="Texture2D" uid="uid://cwacnuf8pbcn0" path="res://art/ui/badges/easy_badge.tres" id="5_7ki0n"]
+[ext_resource type="Texture2D" uid="uid://bkbg1uvhyflea" path="res://art/ui/badges/medium_badge.tres" id="7_knkhg"]
+[ext_resource type="Texture2D" uid="uid://dj764fq0kwmyf" path="res://art/ui/badges/hard_badge.tres" id="8_1irx0"]
 
-[node name="Main Menu" type="Control"]
+[node name="Main Menu" type="Control" node_paths=PackedStringArray("badges")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5m7do")
+badges = [NodePath("Easy"), NodePath("Medium"), NodePath("Hard")]
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -49,3 +55,168 @@ text = "Controls:
 [img=top,top region=60,36,24,12]res://art/ui/key_indicator.png[/img] [v_off px=1]| Quit Game[/v_off]"
 scroll_active = false
 custom_effects = [ExtResource("3_jixfc")]
+
+[node name="Easy" type="Control" parent="." node_paths=PackedStringArray("badge_rect")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -42.0
+offset_right = 28.0
+offset_bottom = -2.0
+grow_vertical = 0
+script = ExtResource("4_oyfbf")
+badge_rect = NodePath("Badge")
+required_score = 15
+unlocked_texture = ExtResource("5_7ki0n")
+
+[node name="Title" type="Label" parent="Easy"]
+visible = false
+layout_mode = 0
+offset_right = 27.0
+offset_bottom = 17.0
+theme = ExtResource("1_h1jml")
+theme_override_colors/font_color = Color(0.101961, 0.101961, 0.101961, 1)
+text = "Easy"
+horizontal_alignment = 1
+
+[node name="Badge" type="TextureRect" parent="Easy"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 10.0
+offset_right = 8.0
+offset_bottom = 26.0
+grow_horizontal = 2
+texture = ExtResource("4_lptfw")
+
+[node name="Count" type="Label" parent="Easy"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -11.0
+offset_right = 14.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_h1jml")
+theme_override_colors/font_color = Color(0.101961, 0.101961, 0.101961, 1)
+text = "15"
+horizontal_alignment = 1
+
+[node name="Medium" type="Control" parent="." node_paths=PackedStringArray("badge_rect")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -42.0
+offset_right = 58.0
+offset_bottom = -2.0
+grow_vertical = 0
+script = ExtResource("4_oyfbf")
+badge_rect = NodePath("Badge")
+required_score = 30
+unlocked_texture = ExtResource("7_knkhg")
+
+[node name="Title" type="Label" parent="Medium"]
+visible = false
+layout_mode = 0
+offset_right = 27.0
+offset_bottom = 17.0
+theme = ExtResource("1_h1jml")
+theme_override_colors/font_color = Color(0.101961, 0.101961, 0.101961, 1)
+text = "Med"
+horizontal_alignment = 1
+
+[node name="Badge" type="TextureRect" parent="Medium"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 10.0
+offset_right = 8.0
+offset_bottom = 26.0
+grow_horizontal = 2
+texture = ExtResource("4_lptfw")
+
+[node name="Count" type="Label" parent="Medium"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -11.0
+offset_right = 14.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_h1jml")
+theme_override_colors/font_color = Color(0.101961, 0.101961, 0.101961, 1)
+text = "30"
+horizontal_alignment = 1
+
+[node name="Hard" type="Control" parent="." node_paths=PackedStringArray("badge_rect")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 62.0
+offset_top = -42.0
+offset_right = 88.0
+offset_bottom = -2.0
+grow_vertical = 0
+script = ExtResource("4_oyfbf")
+badge_rect = NodePath("Badge")
+required_score = 50
+unlocked_texture = ExtResource("8_1irx0")
+
+[node name="Title" type="Label" parent="Hard"]
+visible = false
+layout_mode = 0
+offset_right = 27.0
+offset_bottom = 17.0
+theme = ExtResource("1_h1jml")
+theme_override_colors/font_color = Color(0.101961, 0.101961, 0.101961, 1)
+text = "Hard"
+horizontal_alignment = 1
+
+[node name="Badge" type="TextureRect" parent="Hard"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = 10.0
+offset_right = 8.0
+offset_bottom = 26.0
+grow_horizontal = 2
+texture = ExtResource("4_lptfw")
+
+[node name="Count" type="Label" parent="Hard"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -11.0
+offset_right = 14.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_h1jml")
+theme_override_colors/font_color = Color(0.101961, 0.101961, 0.101961, 1)
+text = "50"
+horizontal_alignment = 1

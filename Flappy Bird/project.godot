@@ -11,20 +11,23 @@ config_version=5
 [application]
 
 config/name="Flappy Owl"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://ui/splash_screen/splash_screen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="KingToot/Flappy Owl"
 config/features=PackedStringArray("4.1", "Mobile")
+boot_splash/image="res://art/ui/splash_screen.png"
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
-AudioManager="*res://autoload/audio_manager.gd"
 TimeScaleManager="*res://autoload/time_scale_manager.gd"
 WindowManager="*res://autoload/window_manager.gd"
 Util="*res://autoload/utility.gd"
 SceneManager="*res://autoload/scene_manager.gd"
+TransitionManager="*res://scenes/transition_manager.tscn"
+AudioManager="*res://autoload/audio manager/audio_manager.tscn"
+ScreenshotManager="*res://autoload/screenshot_manager.gd"
 
 [display]
 
@@ -68,6 +71,11 @@ restart_run={
 quit_game={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+screenshot={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194444,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 

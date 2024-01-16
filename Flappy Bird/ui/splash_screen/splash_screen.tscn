@@ -1,0 +1,133 @@
+[gd_scene load_steps=11 format=3 uid="uid://crbbaumv7jfj"]
+
+[ext_resource type="Texture2D" uid="uid://bx2ui3utno65t" path="res://art/environment/sky.png" id="1_l0t24"]
+[ext_resource type="Script" path="res://ui/splash_screen/splash_screen.gd" id="1_mn7gk"]
+[ext_resource type="Texture2D" uid="uid://ccd1bmgs1jq4x" path="res://art/environment/clouds.png" id="2_63rgk"]
+[ext_resource type="Texture2D" uid="uid://bhkbyn5cg1ue3" path="res://art/environment/floor.png" id="3_nqid3"]
+[ext_resource type="Shader" path="res://shaders/scrolling_rect.gdshader" id="3_tgjcp"]
+[ext_resource type="Texture2D" uid="uid://30vhurdmk357" path="res://art/ui/godot_logo.png" id="4_gt5ek"]
+[ext_resource type="Material" uid="uid://bb6nu8vqu5ixq" path="res://shaders/scrolling_rect.tres" id="5_3xnhf"]
+[ext_resource type="Theme" uid="uid://cxpdm1ejwhp1j" path="res://themes/basic.tres" id="6_dg2ai"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iayh3"]
+shader = ExtResource("3_tgjcp")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/use_global_scroll = false
+shader_parameter/scroll_speed = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5iyu5"]
+shader = ExtResource("3_tgjcp")
+shader_parameter/direction = Vector2(1, 0)
+shader_parameter/use_global_scroll = false
+shader_parameter/scroll_speed = 0.005
+
+[node name="Splash Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mn7gk")
+
+[node name="Splash Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("1_l0t24")
+
+[node name="Clouds (Bottom)2" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_iayh3")
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -68.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_63rgk")
+stretch_mode = 1
+
+[node name="Clouds (Top)2" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_5iyu5")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = -14.0
+offset_right = 160.0
+offset_bottom = 54.0
+grow_horizontal = 2
+texture = ExtResource("2_63rgk")
+stretch_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="Floor" type="TextureRect" parent="."]
+material = ExtResource("5_3xnhf")
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_nqid3")
+stretch_mode = 1
+
+[node name="Godot Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -42.0
+offset_right = 48.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_gt5ek")
+
+[node name="Title" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.0
+offset_top = 24.0
+offset_right = 59.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme = ExtResource("6_dg2ai")
+theme_override_colors/font_color = Color(0.101961, 0.101961, 0.101961, 1)
+theme_override_font_sizes/font_size = 28
+text = "Flappy Owl"
+horizontal_alignment = 1
+
+[node name="Godot Proud" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
+offset_top = 126.0
+offset_right = 71.0
+offset_bottom = 143.0
+grow_horizontal = 2
+theme = ExtResource("6_dg2ai")
+theme_override_colors/font_color = Color(0.101961, 0.101961, 0.101961, 1)
+text = "Made with Godot"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="Splash Timer" to="." method="load_game_scene"]

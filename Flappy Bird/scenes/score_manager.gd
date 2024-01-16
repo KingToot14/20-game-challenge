@@ -1,4 +1,4 @@
-class_name ScoreManager
+
 extends Node2D
 
 # --- Signals --- #

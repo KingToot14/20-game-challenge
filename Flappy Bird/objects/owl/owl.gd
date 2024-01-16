@@ -21,6 +21,14 @@ var alive := true
 @export var terminal_velocity := 100.0
 var raw_velocity: float
 
+@export_group("Sound Effects", "sfx_")
+@export var sfx_do_swear: bool = false
+
+@export var sfx_flap: AudioStream
+@export var sfx_death: AudioStream
+@export var sfx_swear: AudioStream
+@export var sfx_munch: AudioStream
+
 var score: int = 0
 
 # --- References --- #
@@ -70,6 +78,7 @@ func _input(event):
 			get_tree().call_group('obstacles', 'start_moving')
 		
 		set_raw_velocity(-jump_power)
+		AudioManager.play_sfx('main', sfx_flap, true)
 
 func handle_collision():
 	if not alive: return
@@ -79,10 +88,16 @@ func handle_collision():
 func pass_collectible():
 	if not alive: return
 	
+	AudioManager.play_sfx('vocals', sfx_munch)
+	
 	passed_collectible.emit()
 
 func handle_game_over():
 	alive = false
+	
+	AudioManager.play_sfx('main',sfx_death, true)
+	if sfx_do_swear:
+		AudioManager.play_sfx('vocals',sfx_swear, true)
 
 func add_raw_velocity(delta): set_raw_velocity(raw_velocity + delta)
 

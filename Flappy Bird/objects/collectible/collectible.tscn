@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://objects/collectible/collectible.gd" id="1_grng3"]
 [ext_resource type="Texture2D" uid="uid://bug7vcb8x2vwg" path="res://art/objects/twig.png" id="2_xw5wl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ojisi"]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2584c"]
+size = Vector2(16, 80)
 
 [node name="Collectible" type="Area2D"]
 collision_layer = 8
@@ -15,7 +15,7 @@ anim_rotation_speed = 4.0
 metadata/_edit_group_ = true
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ojisi")
+shape = SubResource("RectangleShape2D_2584c")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_xw5wl")

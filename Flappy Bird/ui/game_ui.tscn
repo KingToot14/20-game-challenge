@@ -38,7 +38,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("2_8kueb")
 theme_override_colors/font_color = Color(0.839216, 0.690196, 0.152941, 1)
-text = "127"
+text = "0"
 
 [node name="Score Label" type="Label" parent="."]
 layout_mode = 0
@@ -64,4 +64,4 @@ grow_horizontal = 0
 grow_vertical = 2
 theme = ExtResource("2_8kueb")
 theme_override_colors/font_color = Color(0.0588235, 0.54902, 0.0941176, 1)
-text = "17"
+text = "0"

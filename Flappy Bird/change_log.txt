@@ -1,3 +1,23 @@
+# - January 11-15, 2024
+Added sound effects and some last minute polish
+
+SFX:
+	Added a 'flap' sfx
+	Added an 'impact' sfx
+	Added a 'swearing' sfx (togglable)
+
+Polish:
+	Added badges that unlock after certain scores
+
+
+# - January 7, 2024
+Today's goal was mainly to get everything wrapped up. Hopefully moving on to sfx soon
+
+UI:
+	Added a transition manager (clouds move in and out)
+	Added a splash screen
+
+
 # - January 6, 2024
 Trying to get the full game loop down - main menu => gameplay => death => score => restart
 

@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c76jeaxwpmlse"]
+[gd_scene load_steps=8 format=3 uid="uid://c76jeaxwpmlse"]
 
 [ext_resource type="Script" path="res://objects/owl/owl.gd" id="1_nu5m0"]
+[ext_resource type="AudioStream" uid="uid://bveieyi1wje84" path="res://objects/owl/wing_flap.tres" id="2_m23el"]
 [ext_resource type="Texture2D" uid="uid://cg8wx7pe8bkhq" path="res://objects/owl/owl.png" id="2_pfhrf"]
+[ext_resource type="AudioStream" uid="uid://b2tmxeetu23wp" path="res://objects/owl/swear.tres" id="3_c1f3d"]
+[ext_resource type="AudioStream" uid="uid://bcgk48i4oqgqr" path="res://objects/owl/impact.tres" id="3_e1j3f"]
+[ext_resource type="AudioStream" uid="uid://cxi1mo0xu8tvp" path="res://objects/owl/branch_munch.tres" id="5_p468b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xs0ox"]
 radius = 7.0
@@ -11,6 +15,10 @@ collision_mask = 14
 script = ExtResource("1_nu5m0")
 jump_power = 100.0
 terminal_velocity = 200.0
+sfx_flap = ExtResource("2_m23el")
+sfx_death = ExtResource("3_e1j3f")
+sfx_swear = ExtResource("3_c1f3d")
+sfx_munch = ExtResource("5_p468b")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 z_index = 100

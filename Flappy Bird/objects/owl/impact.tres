@@ -1,0 +1,18 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://bcgk48i4oqgqr"]
+
+[ext_resource type="AudioStream" uid="uid://jtgb0iw3o0u" path="res://objects/owl/sfx/impact-01.wav" id="1_m3h00"]
+[ext_resource type="AudioStream" uid="uid://bklpoonccm2e0" path="res://objects/owl/sfx/impact-02.wav" id="2_8ohng"]
+[ext_resource type="AudioStream" uid="uid://cppdhbdf2yhcx" path="res://objects/owl/sfx/impact-03.wav" id="3_66wmv"]
+[ext_resource type="AudioStream" uid="uid://c54b8l35luii8" path="res://objects/owl/sfx/impact-04.wav" id="4_ue3nb"]
+
+[resource]
+streams_count = 4
+random_pitch = 1.0
+stream_0/stream = ExtResource("1_m3h00")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_8ohng")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_66wmv")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_ue3nb")
+stream_3/weight = 1.0

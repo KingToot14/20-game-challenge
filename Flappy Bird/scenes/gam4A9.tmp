@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://c288on2od7ps7"]
 
-[ext_resource type="Script" path="res://scenes/score_manager.gd" id="1_iwtbe"]
+[ext_resource type="Script" path="res://managers/score_manager.gd" id="1_jpb3i"]
 [ext_resource type="PackedScene" uid="uid://dyhwij0bn12r5" path="res://scenes/play_area.tscn" id="1_n15et"]
 [ext_resource type="PackedScene" uid="uid://c76jeaxwpmlse" path="res://objects/owl/owl.tscn" id="2_0s1nj"]
-[ext_resource type="Script" path="res://autoload/file_manager.gd" id="2_djfs6"]
+[ext_resource type="Script" path="res://managers/file_manager.gd" id="2_kupom"]
 [ext_resource type="PackedScene" uid="uid://cl533sydmjai6" path="res://objects/obstacle/obstacle.tscn" id="3_pels5"]
 [ext_resource type="Texture2D" uid="uid://dya2dcjjpq5be" path="res://objects/owl/owl_shadow.png" id="4_8076d"]
 [ext_resource type="PackedScene" uid="uid://bp38st4gyhqs6" path="res://ui/game_ui.tscn" id="5_jo8kj"]
@@ -13,10 +13,10 @@
 [node name="Game" type="Node"]
 
 [node name="Score Manager" type="Node2D" parent="."]
-script = ExtResource("1_iwtbe")
+script = ExtResource("1_jpb3i")
 
 [node name="File Manager" type="Node2D" parent="."]
-script = ExtResource("2_djfs6")
+script = ExtResource("2_kupom")
 
 [node name="Play Area" parent="." instance=ExtResource("1_n15et")]
 

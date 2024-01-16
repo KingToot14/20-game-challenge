@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://cl3vdiq1igngv"]
+
+[ext_resource type="Script" path="res://scenes/transition_manager.gd" id="1_3hce5"]
+[ext_resource type="Texture2D" uid="uid://ccd1bmgs1jq4x" path="res://art/environment/clouds.png" id="2_keb3q"]
+
+[sub_resource type="Animation" id="Animation_urrwe"]
+resource_name = "clouds_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clouds:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 250), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s24dc"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clouds:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 247)]
+}
+
+[sub_resource type="Animation" id="Animation_53fi3"]
+resource_name = "clouds_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clouds:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -250)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pf3p7"]
+_data = {
+"RESET": SubResource("Animation_s24dc"),
+"clouds_in": SubResource("Animation_urrwe"),
+"clouds_out": SubResource("Animation_53fi3")
+}
+
+[node name="Transition Manager" type="CanvasLayer"]
+script = ExtResource("1_3hce5")
+
+[node name="Clouds" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 247.0
+offset_right = 320.0
+offset_bottom = 427.0
+metadata/_edit_group_ = true
+
+[node name="Fill" type="ColorRect" parent="Clouds"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.588235, 0.890196, 0.929412, 1)
+
+[node name="Clouds (Top)" type="TextureRect" parent="Clouds"]
+layout_mode = 0
+offset_top = -68.0
+offset_right = 320.0
+texture = ExtResource("2_keb3q")
+
+[node name="Clouds (Bottom)" type="TextureRect" parent="Clouds"]
+offset_top = 180.0
+offset_right = 320.0
+offset_bottom = 248.0
+texture = ExtResource("2_keb3q")
+flip_h = true
+flip_v = true
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pf3p7")
+}
