@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0s3bpxdm7575"]
+
+[ext_resource type="PackedScene" uid="uid://bu0nxuddtecpi" path="res://objects/pickaxe/pickaxe.tscn" id="1_c3e2x"]
+[ext_resource type="Script" path="res://scripts/death_zone.gd" id="1_ejgdy"]
+[ext_resource type="PackedScene" uid="uid://dw5y1krfgv6b" path="res://levels/testing/lvl_sandbox.tscn" id="3_2bgfu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1u4ts"]
+size = Vector2(340, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2qmpn"]
+size = Vector2(10, 180)
+
+[node name="Play Area" type="Node2D"]
+
+[node name="Bounds" type="Node2D" parent="."]
+
+[node name="Top" type="StaticBody2D" parent="Bounds"]
+position = Vector2(160, -5)
+collision_layer = 2
+
+[node name="Collision" type="CollisionShape2D" parent="Bounds/Top"]
+shape = SubResource("RectangleShape2D_1u4ts")
+debug_color = Color(0.701961, 0.701961, 0.701961, 0.419608)
+
+[node name="Right" type="StaticBody2D" parent="Bounds"]
+position = Vector2(-5, 90)
+collision_layer = 2
+
+[node name="Collision" type="CollisionShape2D" parent="Bounds/Right"]
+shape = SubResource("RectangleShape2D_2qmpn")
+debug_color = Color(0.701961, 0.701961, 0.701961, 0.419608)
+
+[node name="Left" type="StaticBody2D" parent="Bounds"]
+position = Vector2(325, 90)
+collision_layer = 2
+
+[node name="Collision" type="CollisionShape2D" parent="Bounds/Left"]
+shape = SubResource("RectangleShape2D_2qmpn")
+debug_color = Color(0.701961, 0.701961, 0.701961, 0.419608)
+
+[node name="Death Zone" type="Area2D" parent="Bounds"]
+position = Vector2(160, 185)
+collision_layer = 16
+script = ExtResource("1_ejgdy")
+
+[node name="Collision" type="CollisionShape2D" parent="Bounds/Death Zone"]
+shape = SubResource("RectangleShape2D_1u4ts")
+debug_color = Color(0.729412, 0, 0, 0.478431)
+
+[node name="Pickaxe" parent="." instance=ExtResource("1_c3e2x")]
+position = Vector2(160, 140)
+
+[node name="lvl_sandbox" parent="." instance=ExtResource("3_2bgfu")]
+
+[connection signal="body_entered" from="Bounds/Death Zone" to="Bounds/Death Zone" method="_on_body_entered"]

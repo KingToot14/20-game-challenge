@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://b27g2qref68mh"]
+
+[ext_resource type="Script" path="res://objects/bricks/brick.gd" id="1_tbxd4"]
+[ext_resource type="Texture2D" uid="uid://dpeng7f2uhx21" path="res://objects/bricks/outline.png" id="4_8xeqp"]
+[ext_resource type="Texture2D" uid="uid://btrcgvkiy20pq" path="res://objects/bricks/basic/basic.png" id="4_xxom7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6238"]
+resource_local_to_scene = true
+size = Vector2(16, 16)
+
+[node name="Brick (Standard)" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_tbxd4")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="TextureRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("4_xxom7")
+stretch_mode = 1
+
+[node name="Outline" type="NinePatchRect" parent="Sprite"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8xeqp")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_p6238")
+debug_color = Color(0, 0.701961, 0.0470588, 0.419608)

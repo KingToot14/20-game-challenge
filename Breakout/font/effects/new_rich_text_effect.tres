@@ -1,0 +1,6 @@
+[gd_resource type="RichTextEffect" script_class="RichTextVOff" load_steps=2 format=3 uid="uid://berboi27eyi50"]
+
+[ext_resource type="Script" path="res://font/effects/rich_text_v_off.gd" id="1_xlkks"]
+
+[resource]
+script = ExtResource("1_xlkks")

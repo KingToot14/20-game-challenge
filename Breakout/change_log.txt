@@ -1,0 +1,15 @@
+# January 16, 2024
+Started up the Breakout Project! (I'm thinking of calling it Ricochet Miner)
+
+Gameplay:
+	Bouncing ball
+	Lose life if fall off screen
+
+Brick:
+	Added sprites (with adjustable width)
+	Added Collision (no breaking yet)
+
+Tilemap:
+	Autotiling (terrain)
+	Tilemap sprites
+	Collisions

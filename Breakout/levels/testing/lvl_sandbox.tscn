@@ -1,0 +1,117 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw5y1krfgv6b"]
+
+[ext_resource type="PackedScene" uid="uid://b27g2qref68mh" path="res://objects/bricks/basic/brick_standard.tscn" id="1_t8sap"]
+[ext_resource type="TileSet" uid="uid://br0ekgn8gl3pf" path="res://tiles/wooden_beam.tres" id="2_d3hhg"]
+
+[node name="lvl_sandbox" type="Node2D"]
+
+[node name="Bricks" type="Node2D" parent="."]
+
+[node name="Brick (Standard)" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(40, 48)
+size = 3.0
+
+[node name="Brick (Standard)2" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(88, 48)
+size = 3.0
+
+[node name="Brick (Standard)3" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(136, 48)
+size = 3.0
+
+[node name="Brick (Standard)4" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(184, 48)
+size = 3.0
+
+[node name="Brick (Standard)5" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(232, 48)
+size = 3.0
+
+[node name="Brick (Standard)6" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(280, 48)
+size = 3.0
+
+[node name="Brick (Standard)7" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(64, 64)
+size = 3.0
+
+[node name="Brick (Standard)8" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(112, 64)
+size = 3.0
+
+[node name="Brick (Standard)9" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(160, 64)
+size = 3.0
+
+[node name="Brick (Standard)10" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(208, 64)
+size = 3.0
+
+[node name="Brick (Standard)11" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(256, 64)
+size = 3.0
+
+[node name="Brick (Standard)12" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(292, 64)
+size = 1.5
+
+[node name="Brick (Standard)13" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(28, 64)
+size = 1.5
+
+[node name="Brick (Standard)14" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(40, 80)
+size = 3.0
+
+[node name="Brick (Standard)15" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(88, 80)
+size = 3.0
+
+[node name="Brick (Standard)16" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(136, 80)
+size = 3.0
+
+[node name="Brick (Standard)17" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(184, 80)
+size = 3.0
+
+[node name="Brick (Standard)18" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(232, 80)
+size = 3.0
+
+[node name="Brick (Standard)19" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(280, 80)
+size = 3.0
+
+[node name="Brick (Standard)20" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(64, 96)
+size = 3.0
+
+[node name="Brick (Standard)21" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(112, 96)
+size = 3.0
+
+[node name="Brick (Standard)22" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(160, 96)
+size = 3.0
+
+[node name="Brick (Standard)23" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(208, 96)
+size = 3.0
+
+[node name="Brick (Standard)24" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(256, 96)
+size = 3.0
+
+[node name="Brick (Standard)25" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(292, 96)
+size = 1.5
+
+[node name="Brick (Standard)26" parent="Bricks" instance=ExtResource("1_t8sap")]
+position = Vector2(28, 96)
+size = 1.5
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = ExtResource("2_d3hhg")
+format = 2
+layer_0/tile_data = PackedInt32Array(589824, 196608, 2, 655360, 196608, 2, 524288, 196608, 2, 458752, 196608, 2, 393216, 196608, 2, 327680, 196608, 2, 262144, 196608, 2, 196608, 196608, 2, 131072, 196608, 2, 65536, 196608, 2, 0, 524288, 2, -65536, 131072, 1, 720895, 65536, 2, 655359, 65536, 2, 589823, 65536, 2, 524287, 65536, 2, 458751, 65536, 2, 393215, 65536, 2, 327679, 65536, 2, 262143, 65536, 2, 196607, 65536, 2, 131071, 65536, 2, 65535, 65536, 2, -1, 65536, 1, 20, 196608, 2, -65516, 196608, 1, 19, 589824, 2, -65517, 131072, 1, 18, 131072, 3, -65518, 131072, 1, 17, 131072, 3, -65519, 131072, 1, 16, 131072, 3, -65520, 131072, 1, 15, 131072, 3, -65521, 131072, 1, 14, 131072, 3, -65522, 131072, 1, 13, 131072, 3, -65523, 131072, 1, 12, 131072, 3, -65524, 131072, 1, 11, 131072, 3, -65525, 131072, 1, 10, 131072, 3, -65526, 131072, 1, 9, 131072, 3, -65527, 131072, 1, 8, 131072, 3, -65528, 131072, 1, 7, 131072, 3, -65529, 131072, 1, 6, 131072, 3, -65530, 131072, 1, 5, 131072, 3, -65531, 131072, 1, 4, 131072, 3, -65532, 131072, 1, 3, 131072, 3, -65533, 131072, 1, 2, 131072, 3, -65534, 131072, 1, 1, 131072, 3, -65535, 131072, 1, 720916, 196608, 2, 655380, 196608, 2, 589844, 196608, 2, 524308, 196608, 2, 458772, 196608, 2, 393236, 196608, 2, 327700, 196608, 2, 262164, 196608, 2, 196628, 196608, 2, 131092, 196608, 2, 65556, 196608, 2, 720896, 196608, 2, 786431, 65536, 2, 720915, 65536, 2, 655379, 65536, 2, 589843, 65536, 2, 524307, 65536, 2, 458771, 65536, 2, 393235, 65536, 2, 327699, 65536, 2, 262163, 65536, 2, 196627, 65536, 2, 131091, 65536, 2, 65555, 65536, 2, 786432, 196608, 3, 851967, 65536, 3, 786451, 65536, 3, 786452, 196608, 3)

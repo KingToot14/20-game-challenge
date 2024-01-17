@@ -1,0 +1,72 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Ricochet Miners"
+run/main_scene="res://scenes/play_area.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="KingToot/Ricochet Miners"
+config/features=PackedStringArray("4.1", "Mobile")
+boot_splash/bg_color=Color(0.301961, 0.313726, 0.329412, 1)
+config/icon="res://icon.svg"
+
+[autoload]
+
+AudioManager="*res://autoload/audio manager/audio_manager.tscn"
+SceneManager="*res://autoload/scene_manager.gd"
+ScreenshotManager="*res://autoload/screenshot_manager.gd"
+TimeScaleManager="*res://autoload/time_scale_manager.gd"
+Utility="*res://autoload/utility.gd"
+WindowManager="*res://autoload/window_manager.gd"
+TransitionManager="*res://autoload/transition manager/transition_manager.tscn"
+FileManager="*res://autoload/file_manager.gd"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/stretch/mode="canvas_items"
+
+[input]
+
+increase_resolution={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194446,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+decrease_resolution={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194440,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+toggle_fullscreen={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194443,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+screenshot={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194444,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Walls"
+2d_physics/layer_3="Brick"
+2d_physics/layer_4="Obstacle"
+2d_physics/layer_5="Death Zone"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.301961, 0.313726, 0.329412, 1)
