@@ -3,15 +3,14 @@
 [ext_resource type="Script" path="res://managers/game_state_manager.gd" id="1_3voka"]
 [ext_resource type="Script" path="res://objects/bricks/health_system.gd" id="1_bu1p6"]
 [ext_resource type="PackedScene" uid="uid://bu0nxuddtecpi" path="res://objects/pickaxe/pickaxe.tscn" id="1_c3e2x"]
-[ext_resource type="Script" path="res://scenes/play_area.gd" id="1_oleoc"]
+[ext_resource type="Script" path="res://managers/level_loader.gd" id="1_dfk4b"]
 [ext_resource type="PackedScene" uid="uid://dw5y1krfgv6b" path="res://levels/testing/lvl_sandbox.tscn" id="3_2bgfu"]
 [ext_resource type="PackedScene" uid="uid://qslna54fad6o" path="res://objects/paddle/paddle.tscn" id="3_bs3hq"]
 [ext_resource type="PackedScene" uid="uid://4uxyltyhxrpl" path="res://ui/life indicator/life_indicator.tscn" id="4_efn7d"]
 [ext_resource type="PackedScene" uid="uid://d114dg7taphbi" path="res://ui/game over/game_over.tscn" id="7_01buw"]
 
 [node name="Play Area" type="Node2D"]
-script = ExtResource("1_oleoc")
-instantiate_level_on_ready = false
+script = ExtResource("1_dfk4b")
 
 [node name="Game State Manager" type="Node2D" parent="."]
 script = ExtResource("1_3voka")
@@ -39,7 +38,9 @@ layer = 128
 
 [connection signal="state_changed" from="Game State Manager" to="Pickaxe" method="handle_game_state_change"]
 [connection signal="state_changed" from="Game State Manager" to="UI/Game Over" method="handle_game_state_change"]
-[connection signal="died" from="Life Manager" to="Pickaxe" method="destroy"]
 [connection signal="died" from="Life Manager" to="Game State Manager" method="set_state" binds= [2]]
 [connection signal="took_damage" from="Life Manager" to="UI/Life Indicator" method="update_lives"]
 [connection signal="life_lost" from="Pickaxe" to="Life Manager" method="take_damage"]
+[connection signal="reset_position" from="Pickaxe" to="Pickaxe/Movement Controller" method="reset_position" flags=18]
+[connection signal="level_restarted" from="UI/Game Over" to="." method="reload_level"]
+[connection signal="level_restarted" from="UI/Game Over" to="Game State Manager" method="set_state" binds= [0]]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://4uxyltyhxrpl"]
+
+[ext_resource type="Texture2D" uid="uid://co1lcd132dds6" path="res://objects/pickaxe/art/pickaxe.png" id="1_5f4w2"]
+[ext_resource type="Script" path="res://ui/life indicator/life_indicator.gd" id="1_ym5tk"]
+[ext_resource type="Texture2D" uid="uid://bwjg8j1kpcwbo" path="res://ui/life indicator/life_empty.tres" id="2_dqahs"]
+[ext_resource type="Texture2D" uid="uid://dago0rih8pspb" path="res://ui/life indicator/life_full.tres" id="3_7lyna"]
+
+[node name="Life Container" type="VBoxContainer" node_paths=PackedStringArray("life_rects")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_right = 16.0
+grow_vertical = 0
+alignment = 1
+script = ExtResource("1_ym5tk")
+life_rects = [NodePath("Life 1"), NodePath("Life 2"), NodePath("Life 3")]
+texture_full = ExtResource("3_7lyna")
+texture_empty = ExtResource("2_dqahs")
+
+[node name="Life 1" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_5f4w2")
+
+[node name="Life 2" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_5f4w2")
+
+[node name="Life 3" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_5f4w2")

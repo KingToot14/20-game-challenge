@@ -39,7 +39,8 @@ layer = 128
 
 [connection signal="state_changed" from="Game State Manager" to="Pickaxe" method="handle_game_state_change"]
 [connection signal="state_changed" from="Game State Manager" to="UI/Game Over" method="handle_game_state_change"]
-[connection signal="died" from="Life Manager" to="Pickaxe" method="destroy"]
 [connection signal="died" from="Life Manager" to="Game State Manager" method="set_state" binds= [2]]
 [connection signal="took_damage" from="Life Manager" to="UI/Life Indicator" method="update_lives"]
 [connection signal="life_lost" from="Pickaxe" to="Life Manager" method="take_damage"]
+[connection signal="level_restarted" from="UI/Game Over" to="." method="reload_level"]
+[connection signal="level_restarted" from="UI/Game Over" to="Game State Manager" method="set_state" binds= [0]]

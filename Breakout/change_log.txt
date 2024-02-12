@@ -1,3 +1,26 @@
+# January 20-23, 2024
+More game loop
+
+UI:
+	Added a game over screen on death w/ restart functionality
+
+
+# January 17-19, 2024
+Working through making the base game loop
+
+Pickaxe:
+	Changed how the pickaxe bounces off the paddle (now bounces based on where on the paddle it hit)
+	Now increases speed when breaking a brick
+	Can go off screen and repsawn (losing a life)
+
+Bricks:
+	Updated sprites to be more flexible
+	Can now be broken
+
+UI:
+	Added a life indicator
+
+
 # January 16, 2024
 Started up the Breakout Project! (I'm thinking of calling it Ricochet Miner)
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b27g2qref68mh"]
+[gd_scene load_steps=6 format=3 uid="uid://b27g2qref68mh"]
 
 [ext_resource type="Script" path="res://objects/bricks/brick.gd" id="1_tbxd4"]
+[ext_resource type="Script" path="res://objects/bricks/health_system.gd" id="2_1nhtw"]
 [ext_resource type="Texture2D" uid="uid://dpeng7f2uhx21" path="res://objects/bricks/outline.png" id="4_8xeqp"]
 [ext_resource type="Texture2D" uid="uid://btrcgvkiy20pq" path="res://objects/bricks/basic/basic.png" id="4_xxom7"]
 
@@ -12,6 +13,9 @@ size = Vector2(16, 16)
 collision_layer = 4
 script = ExtResource("1_tbxd4")
 metadata/_edit_group_ = true
+
+[node name="Health System" type="Node2D" parent="."]
+script = ExtResource("2_1nhtw")
 
 [node name="Sprite" type="TextureRect" parent="."]
 offset_left = -8.0
@@ -38,3 +42,5 @@ patch_margin_bottom = 1
 visible = false
 shape = SubResource("RectangleShape2D_p6238")
 debug_color = Color(0, 0.701961, 0.0470588, 0.419608)
+
+[connection signal="died" from="Health System" to="." method="destroy"]

@@ -1,0 +1,132 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0h0y8snul4e7"]
+
+[ext_resource type="Script" path="res://scenes/level select/level_select_button.gd" id="1_lgosy"]
+
+[node name="Level Select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button Grid" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 170.0
+
+[node name="Level Button" type="Control" parent="Button Grid"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_type_variation = &"LevelButton"
+script = ExtResource("1_lgosy")
+level_path = "testing/sandbox"
+metadata/_edit_group_ = true
+
+[node name="Fill" type="ColorRect" parent="Button Grid/Level Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Name" type="Label" parent="Button Grid/Level Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.901961, 0.901961, 0.901961, 1)
+text = "Sandbox"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Level Button2" type="Control" parent="Button Grid"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 50.0
+offset_right = 82.0
+offset_bottom = 32.0
+theme_type_variation = &"LevelButton"
+script = ExtResource("1_lgosy")
+level_path = "testing/one"
+metadata/_edit_group_ = true
+
+[node name="Fill" type="ColorRect" parent="Button Grid/Level Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Name" type="Label" parent="Button Grid/Level Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.901961, 0.901961, 0.901961, 1)
+text = "One"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Level Button3" type="Control" parent="Button Grid"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 100.0
+offset_right = 132.0
+offset_bottom = 32.0
+theme_type_variation = &"LevelButton"
+script = ExtResource("1_lgosy")
+level_path = "testing/head_hitter"
+metadata/_edit_group_ = true
+
+[node name="Fill" type="ColorRect" parent="Button Grid/Level Button3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.501961, 0.501961, 0.501961, 1)
+
+[node name="Name" type="Label" parent="Button Grid/Level Button3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.901961, 0.901961, 0.901961, 1)
+text = "Head Hiter"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[connection signal="mouse_pressed" from="Button Grid/Level Button" to="Button Grid/Level Button" method="load_level"]
+[connection signal="gui_input" from="Button Grid/Level Button/Fill" to="Button Grid/Level Button" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Button Grid/Level Button/Fill" to="Button Grid/Level Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button Grid/Level Button/Fill" to="Button Grid/Level Button" method="_on_mouse_exited"]
+[connection signal="mouse_pressed" from="Button Grid/Level Button2" to="Button Grid/Level Button2" method="load_level"]
+[connection signal="mouse_entered" from="Button Grid/Level Button2/Fill" to="Button Grid/Level Button2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button Grid/Level Button2/Fill" to="Button Grid/Level Button2" method="_on_mouse_exited"]
+[connection signal="mouse_pressed" from="Button Grid/Level Button3" to="Button Grid/Level Button3" method="load_level"]
+[connection signal="mouse_entered" from="Button Grid/Level Button3/Fill" to="Button Grid/Level Button3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button Grid/Level Button3/Fill" to="Button Grid/Level Button3" method="_on_mouse_exited"]

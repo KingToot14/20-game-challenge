@@ -14,7 +14,10 @@ metadata/_edit_group_ = true
 
 [node name="Movement Controller" type="Node2D" parent="."]
 script = ExtResource("1_4f4gj")
-base_speed = 50
+pos_starting = Vector2(160, 140)
+
+[node name="On Screen Notifier" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-6, -6, 12, 12)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_0yudy")
@@ -22,3 +25,7 @@ texture = ExtResource("1_0yudy")
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fcqmj")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="brick_hit" from="." to="Movement Controller" method="increment_movement"]
+[connection signal="reset_position" from="." to="Movement Controller" method="reset_position"]
+[connection signal="screen_exited" from="On Screen Notifier" to="." method="lose_life"]

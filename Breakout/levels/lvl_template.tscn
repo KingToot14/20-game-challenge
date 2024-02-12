@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci1oqfaan1whr"]
+
+[ext_resource type="Texture2D" uid="uid://b0ax025kh5orj" path="res://art/background.png" id="1_q0mvc"]
+[ext_resource type="TileSet" uid="uid://cyj0sy5jg7len" path="res://resources/tiles/stone.tres" id="3_iuw7x"]
+
+[node name="lvl_template" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_q0mvc")
+
+[node name="Bricks" type="Node2D" parent="."]
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = ExtResource("3_iuw7x")
+format = 2
+layer_0/tile_data = PackedInt32Array(589824, 0, 2, 655360, 0, 2, 524288, 0, 2, 458752, 0, 2, 393216, 0, 2, 327680, 0, 2, 262144, 0, 2, 196608, 0, 2, 131072, 0, 2, 65536, 0, 2, 0, 0, 2, -65536, 262144, 0, 19, 0, 2, 720896, 0, 3, 720915, 0, 3, 655379, 0, 2, 589843, 0, 2, 524307, 0, 2, 458771, 0, 2, 393235, 0, 2, 327699, 0, 2, 262163, 0, 2, 196627, 0, 2, 131091, 0, 2, 65555, 0, 2, -65517, 327680, 0, -65518, 131072, 0, -65519, 131072, 0, -65520, 131072, 0, -65521, 131072, 0, -65522, 131072, 0, -65523, 131072, 0, -65524, 131072, 0, -65525, 131072, 0, -65526, 131072, 0, -65527, 131072, 0, -65528, 131072, 0, -65529, 131072, 0, -65530, 131072, 0, -65531, 131072, 0, -65532, 131072, 0, -65533, 131072, 0, -65534, 131072, 0, -65535, 131072, 0)

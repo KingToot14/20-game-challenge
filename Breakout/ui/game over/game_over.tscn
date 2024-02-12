@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://d114dg7taphbi"]
+
+[ext_resource type="Script" path="res://ui/game over/game_over_button.gd" id="1_575r2"]
+[ext_resource type="Script" path="res://ui/game over/game_over_ui.gd" id="1_yknhb"]
+
+[node name="Game Over UI" type="ColorRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -20.5
+offset_right = 48.0
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.682353, 0.682353, 0.682353, 1)
+script = ExtResource("1_yknhb")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 4.0
+offset_bottom = 21.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Restart Button" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 22.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+script = ExtResource("1_575r2")
+color_active = Color(0.85098, 0.85098, 0.85098, 1)
+color_inactive = Color(0.168627, 0.168627, 0.168627, 1)
+metadata/_edit_group_ = true
+
+[node name="Text" type="Label" parent="Restart Button"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_right = 22.0
+offset_bottom = 17.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+text = "Restart"
+horizontal_alignment = 1
+
+[node name="Underline" type="ColorRect" parent="Restart Button"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = 1.0
+offset_right = 21.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.168627, 0.168627, 0.168627, 1)
+
+[connection signal="gui_input" from="Restart Button" to="Restart Button" method="_on_gui_input"]
+[connection signal="mouse_entered" from="Restart Button" to="Restart Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Restart Button" to="Restart Button" method="_on_mouse_exited"]
+[connection signal="mouse_pressed" from="Restart Button" to="." method="restart_level"]

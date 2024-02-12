@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qr0qm2enwwco"
-path="res://.godot/imported/wooden_beam.png-07e6c5205120a2254d2c668fb848d7e7.ctex"
+uid="uid://b0ax025kh5orj"
+path="res://.godot/imported/background.png-694afb2807fe739c9f0954541e14cf0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tiles/wooden_beam.png"
-dest_files=["res://.godot/imported/wooden_beam.png-07e6c5205120a2254d2c668fb848d7e7.ctex"]
+source_file="res://art/background.png"
+dest_files=["res://.godot/imported/background.png-694afb2807fe739c9f0954541e14cf0b.ctex"]
 
 [params]
 

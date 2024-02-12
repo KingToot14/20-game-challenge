@@ -11,9 +11,15 @@ extends StaticBody2D
 		size = new_size
 		update_size()
 
+# --- References --- #
+@onready var health_system := $"Health System" as HealthSystem
+
 # --- Functions --- #
 func _ready():
 	update_size()
+
+func destroy():
+	queue_free()
 
 func update_size():
 	var width = size * 16
