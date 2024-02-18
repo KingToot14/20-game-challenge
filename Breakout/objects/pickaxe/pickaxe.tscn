@@ -27,5 +27,4 @@ shape = SubResource("CircleShape2D_fcqmj")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [connection signal="brick_hit" from="." to="Movement Controller" method="increment_movement"]
-[connection signal="reset_position" from="." to="Movement Controller" method="reset_position"]
 [connection signal="screen_exited" from="On Screen Notifier" to="." method="lose_life"]

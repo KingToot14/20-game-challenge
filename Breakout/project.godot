@@ -12,10 +12,10 @@ config_version=5
 
 config/name="Ricochet Miners"
 config/tags=PackedStringArray("20_game_challenge", "in_progress")
-run/main_scene="res://scenes/play_area.tscn"
+run/main_scene="res://scenes/level select/level_select.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="KingToot/Ricochet Miners"
-config/features=PackedStringArray("4.1", "Mobile")
+config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(0.301961, 0.313726, 0.329412, 1)
 config/icon="res://icon.svg"
 
@@ -24,10 +24,10 @@ config/icon="res://icon.svg"
 AudioManager="*res://autoload/audio manager/audio_manager.tscn"
 SceneManager="*res://autoload/scene_manager.gd"
 ScreenshotManager="*res://autoload/screenshot_manager.gd"
-TimeScaleManager="*res://autoload/time_scale_manager.gd"
+PauseManager="*res://autoload/pause_manager.gd"
 Utility="*res://autoload/utility.gd"
 WindowManager="*res://autoload/window_manager.gd"
-TransitionManager="*res://autoload/transition manager/transition_manager.tscn"
+TransitionManager="res://autoload/transition manager/transition_manager.tscn"
 FileManager="*res://autoload/file_manager.gd"
 
 [display]
@@ -35,6 +35,18 @@ FileManager="*res://autoload/file_manager.gd"
 window/size/viewport_width=320
 window/size/viewport_height=180
 window/stretch/mode="canvas_items"
+
+[file_customization]
+
+folder_colors={
+"res://art/": "red",
+"res://autoload/": "gray",
+"res://levels/": "orange",
+"res://objects/bricks/": "gray",
+"res://objects/pickaxe/": "orange",
+"res://resources/": "purple",
+"res://ui/": "green"
+}
 
 [gui]
 
@@ -72,6 +84,11 @@ move_right={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"echo":false,"script":null)
+]
+}
+toggle_pause={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 

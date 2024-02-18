@@ -12,28 +12,14 @@ var scn_main_menu = preload("res://scenes/main menu/main_menu.tscn")
 var scn_level_select = preload("res://scenes/level select/level_select.tscn")
 var scn_play_area = preload("res://scenes/play_area.tscn")
 
-var loading_scene := false
 var load_path: String
 
-var scn_curr_level = PackedScene
-var curr_level_path: String
+var scn_curr_level: PackedScene
 
 # --- References --- #
 const PATH_LEVEL_ROOT = "levels/"
 
 # --- Functions --- #
-func _process(delta):
-	if not loading_scene: return
-	
-	var status = ResourceLoader.load_threaded_get_status(load_path)
-	
-	print("Status: ", status)
-	
-	if status == ResourceLoader.THREAD_LOAD_LOADED:
-		loading_scene = false
-		scn_curr_level = ResourceLoader.load_threaded_get(load_path)
-		change_game_scene(GameScene.PLAY_AREA)
-
 func change_game_scene(scn: GameScene):
 	match scn:
 		GameScene.MAIN_MENU:
@@ -46,15 +32,24 @@ func change_game_scene(scn: GameScene):
 func change_root_scene(scn: PackedScene):
 	get_tree().change_scene_to_packed(scn)
 
-func load_level(path):
-	load_path = PATH_LEVEL_ROOT + path + ".tscn"
-	loading_scene = true
+func load_level(path: String):
+	AsyncLoader.new(PATH_LEVEL_ROOT + path + ".tscn", done_loading_level)
+
+func done_loading_level(scn: PackedScene):
+	scn_curr_level = scn
 	
-	var error = ResourceLoader.load_threaded_request(load_path)
-	print("Error: ", error)
+	change_game_scene(GameScene.PLAY_AREA)
 
 func instantiate_level():
-	get_tree().current_scene.add_child(scn_curr_level.instantiate())
+	if scn_curr_level:
+		add_scene(scn_curr_level)
+		# hehe nutd
+
+func add_scene(scn: PackedScene):
+	get_tree().current_scene.add_child(scn.instantiate())
+
+func load_scene(path: String, callback: Callable = change_root_scene):
+	AsyncLoader.new(path, callback)
 
 func reload_root_scene():
 	get_tree().reload_current_scene()

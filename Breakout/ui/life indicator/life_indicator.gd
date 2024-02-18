@@ -1,5 +1,5 @@
 class_name LifeIndicator
-extends Control
+extends CanvasLayer
 
 # --- Variables --- #
 @export var life_rects: Array[TextureRect] = []

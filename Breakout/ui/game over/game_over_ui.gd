@@ -1,5 +1,5 @@
 class_name GameOverUI
-extends Control
+extends CanvasLayer
 
 # --- Functions --- #
 func _ready():

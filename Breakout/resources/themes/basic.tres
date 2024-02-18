@@ -1,14 +1,42 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cxpdm1ejwhp1j"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cxpdm1ejwhp1j"]
 
-[ext_resource type="FontVariation" path="res://font/simple_pixel.tres" id="1_fv3s0"]
+[ext_resource type="FontVariation" uid="uid://bo38ubkr8dqyd" path="res://art/font/simple_pixel.tres" id="1_fv3s0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgblp"]
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7s3a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pq6x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0ph3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8dmn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hs12c"]
 
 [resource]
+Button/colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+Button/colors/font_focus_color = Color(0.168627, 0.168627, 0.168627, 1)
+Button/constants/h_separation = 0
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("1_fv3s0")
+Button/styles/disabled = SubResource("StyleBoxFlat_rgblp")
+Button/styles/focus = SubResource("StyleBoxFlat_a7s3a")
+Button/styles/hover = SubResource("StyleBoxFlat_2pq6x")
+Button/styles/normal = SubResource("StyleBoxFlat_y0ph3")
+Button/styles/pressed = SubResource("StyleBoxFlat_e8dmn")
 Label/font_sizes/font_size = 14
 Label/fonts/font = ExtResource("1_fv3s0")
+Label/styles/normal = SubResource("StyleBoxEmpty_hs12c")
 LevelButton/colors/fill_color_active = Color(0.901961, 0.901961, 0.901961, 1)
 LevelButton/colors/fill_color_inactive = Color(0.501961, 0.501961, 0.501961, 1)
 LevelButton/colors/text_color_active = Color(0.101961, 0.101961, 0.101961, 1)
 LevelButton/colors/text_color_inactive = Color(0.901961, 0.901961, 0.901961, 1)
 RichTextLabel/font_sizes/normal_font_size = 14
 RichTextLabel/fonts/normal_font = ExtResource("1_fv3s0")
+TextButton/colors/fill_color_active = Color(0.168627, 0.168627, 0.168627, 1)
+TextButton/colors/fill_color_inactive = Color(0, 0, 0, 1)
+TextButton/colors/text_color_active = Color(0.85098, 0.85098, 0.85098, 1)
+TextButton/colors/text_color_inactive = Color(0.168627, 0.168627, 0.168627, 1)
 VBoxContainer/constants/separation = 6

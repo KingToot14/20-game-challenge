@@ -14,8 +14,8 @@ func reload_scene():
 	SceneManager.reload_scene()
 	animator.play(ANIM_CLOUDS_OUT)
 
-func load_scene(scn: PackedScene):
+func load_scene(path: String):
 	animator.play(ANIM_CLOUDS_IN)
 	await animator.animation_finished
-	SceneManager.load_scene(scn)
+	SceneManager.load_scene(path)
 	animator.play(ANIM_CLOUDS_OUT)

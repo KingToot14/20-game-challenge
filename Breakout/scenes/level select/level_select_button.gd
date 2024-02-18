@@ -45,10 +45,9 @@ func get_color(clr_name: String) -> Color:
 	return ThemeDB.get_project_theme().get_color(clr_name, theme_type_variation)
 
 func _on_gui_input(event: InputEvent):
-	if not (event is InputEventMouseButton): return
+	if not Utility.is_left_click(event): return
 	
-	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		mouse_pressed.emit()
+	load_level()
 
 func load_level():
 	SceneManager.load_level(level_path)
